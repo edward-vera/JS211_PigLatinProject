@@ -10,12 +10,31 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-
 const pigLatin = (word) => {
+  // your code here
+  // break your code into pieces and focus on one piece at a time...
 
-  // Your code here
+  //should lowercase and trim word before translation
+  //should attach "yay" if word begins with vowel
+  //should translate a complex word
+  //should translate a simple word
 
+//variable for the word the user inputs and trim the whitespace and make lowercase
+  word = word.trim().toLowerCase();
+  let firstLetter = word.charAt(0);
+
+  if (firstLetter == 'a' || firstLetter == 'e' || firstLetter == 'i' || firstLetter == 'o' || firstLetter == 'u') {
+    let vowelFirst = word + "yay";
+    return vowelFirst
+  }else {
+    let firstMatch = word.match(/[aeiou]/g) || 0;
+    let vowel = word.indexOf(firstMatch[0]);
+    let consFirst = word.slice(vowel) + word.slice(0, vowel) + "ay";
+    return consFirst
+  }
+//array of vowels to compare to the word
 }
+
 
 // the first function called in the program to get an input from the user
 // to run the function use the command: node main.js
